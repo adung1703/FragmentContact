@@ -42,9 +42,11 @@ class MyAdapter(val items : ArrayList<ItemData>) : RecyclerView.Adapter<MyAdapte
             bundle.putString("mail", items[position].mail)
             detailFragment.arguments = bundle
 
-            val fragmentManager = (holder.itemView.context as AppCompatActivity).supportFragmentManager
-            fragmentManager.beginTransaction()
-                .replace(R.id.Detail, detailFragment)
+            (holder.itemView.context as AppCompatActivity)
+                .supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.ListContacts, detailFragment)
+                .addToBackStack("LIST")
                 .commit()
         }
         val popupMenu = PopupMenu(holder.itemView.context, holder.itemView)

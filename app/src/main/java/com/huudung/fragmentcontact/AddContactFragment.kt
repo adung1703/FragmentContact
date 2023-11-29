@@ -4,56 +4,61 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [AddContactFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AddContactFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    val listContactFragment = ListContactFragment()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_add_contact, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AddContactFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AddContactFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun check(ID: String, Name: String, Phone: String, Mail: String): Boolean {
+        return ID.isNotBlank() && Name.isNotBlank() && Phone.isNotBlank() && Mail.isNotBlank()
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val addID = view.findViewById<EditText>(R.id.AddId)
+        val addName = view.findViewById<EditText>(R.id.AddName)
+        val addPhone = view.findViewById<EditText>(R.id.AddPhone)
+        val addMail = view.findViewById<EditText>(R.id.AddMail)
+
+        val addButton = view.findViewById<Button>(R.id.Complete)
+
+        addButton.setOnClickListener {
+            if(check(addID.text.toString(),
+                    addName.text.toString(),
+                    addPhone.text.toString(),
+                    addMail.text.toString()
+                )) {
+                Toast.makeText(context, "Add Contact Successfully!", Toast.LENGTH_SHORT).show()
+                val item = ItemData(addID.text.toString(),
+                    addName.text.toString(),
+                    addPhone.text.toString(),
+                    addMail.text.toString(),
+                    resources.getIdentifier(
+                        "drawable/${addName.text.toString().firstOrNull()?.lowercase()}",
+                        null,
+                        view.context.packageName
+                    )
+                    )
+                listContactFragment.contacts.add(item)
+                requireActivity().supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.ListContacts, listContactFragment)
+                    .commit()
+            }
+            else Toast.makeText(context, "Fill all fields", Toast.LENGTH_SHORT).show()
+        }
+
+    }
+
+
 }

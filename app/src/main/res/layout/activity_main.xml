@@ -23,19 +23,19 @@
             android:textColor="#FFFFFF"
             android:textSize="22sp" />
 
-<!--        <ImageButton-->
-<!--            android:layout_width="60dp"-->
-<!--            android:layout_height="60dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:background="673AB7"-->
-<!--            android:contentDescription="Add Contact"-->
-<!--            android:src="@drawable/add_box" />-->
+        <ImageButton
+            android:id="@+id/AddButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="#00000000"
+            android:contentDescription="Add Contact"
+            android:src="@drawable/add_box" />
 
     </LinearLayout>
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/ListContacts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.huudung.fragmentcontact.ListContactFragment"
         />
 </LinearLayout>

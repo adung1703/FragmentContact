@@ -19,30 +19,11 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class ListContactFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-//    private var param1: String? = null
-//    private var param2: String? = null
+
     val contacts = ArrayList<ItemData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        arguments?.let {
-//            param1 = it.getString(ARG_PARAM1)
-//            param2 = it.getString(ARG_PARAM2)
-//        }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list_contact, container, false)
-
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         contacts.add(ItemData("0001", "Bố", "0904461456", "huuthom1972@gmail.com", R.drawable.b))
         contacts.add(ItemData("0002", "Mẹ", "0702189333", "phuongdo1976@gmail.com", R.drawable.m))
         contacts.add(ItemData("0003", "Chị gái", "0966937097", "nhungnt@gmail.com", R.drawable.c))
@@ -56,20 +37,23 @@ class ListContactFragment : Fragment() {
         contacts.add(ItemData("0011", "Chú Luân", "0944950156", "luancomputer@gmail.com", R.drawable.l))
         contacts.add(ItemData("0012", "Lành máy giặt", "0934094789", "lanhmaygiat@gmail.com", R.drawable.l))
         contacts.add(ItemData("0013", "Dũng", "0867831513", "adung1703@gmail.com", R.drawable.d))
+    }
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_list_contact, container, false)
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
         val listView = view.findViewById<RecyclerView>(R.id.listview)
         listView.layoutManager = LinearLayoutManager(requireContext())
         listView.adapter = MyAdapter(contacts)
     }
 
-    companion object {
-
-//        @JvmStatic
-//        fun newInstance(param1: String, param2: String) =
-//            ListContactFragment().apply {
-//                arguments = Bundle().apply {
-//                    putString(ARG_PARAM1, param1)
-//                    putString(ARG_PARAM2, param2)
-//                }
-//            }
-    }
 }

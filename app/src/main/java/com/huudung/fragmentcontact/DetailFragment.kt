@@ -14,10 +14,6 @@ class DetailFragment : Fragment() {
     var phone: String? = null
     var mail: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,6 +36,4 @@ class DetailFragment : Fragment() {
         view.findViewById<TextView>(R.id.Email).text = mail
     }
 
-    companion object {
-    }
 }

@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="40dp"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Addtitle">
@@ -50,32 +50,24 @@
             android:id="@+id/AddId"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:hint="Nhập ID"/>
+            android:hint="Nhập ID" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/nameLayout"
+    <Button
+        android:id="@+id/Complete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="@+id/idLayout"
-        app:layout_constraintTop_toBottomOf="@+id/idLayout">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nhập Tên:"
-            android:textSize="24sp"
-            tools:ignore="MissingConstraints" />
-
-        <EditText
-            android:id="@+id/AddName"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:hint="Nhập tên"/>
-
-    </LinearLayout>
+        android:layout_marginTop="36dp"
+        android:background="#009688"
+        android:text="Thêm"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mailLayout"
+        tools:ignore="TextContrastCheck" />
 
     <LinearLayout
         android:id="@+id/phoneLayout"
@@ -97,7 +89,7 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:hint="Nhập SĐT"
-            android:inputType="phone"/>
+            android:inputType="phone" />
 
     </LinearLayout>
 
@@ -121,20 +113,31 @@
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:hint="Nhập Email"
-            android:inputType="textEmailAddress"/>
+            android:inputType="textEmailAddress" />
 
     </LinearLayout>
 
-    <Button
+    <LinearLayout
+        android:id="@+id/nameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:background="#009688"
-        android:text="Thêm"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mailLayout"
-        tools:ignore="TextContrastCheck"/>
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@+id/idLayout"
+        app:layout_constraintTop_toBottomOf="@+id/idLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nhập Tên:"
+            android:textSize="24sp"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/AddName"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:hint="Nhập tên" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

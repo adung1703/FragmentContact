@@ -32,10 +32,22 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="100dp"
+        android:text="ID: 0000"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
         android:id="@+id/Number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:text="Số điện thoại:\n0389566072"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/FullName"
@@ -46,7 +58,7 @@
         android:id="@+id/FullName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:text="Tên: Nguyễn Hữu Dũng"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/ID"
@@ -54,22 +66,10 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/ID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="115dp"
-        android:text="ID: 0000"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
         android:id="@+id/Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:text="Email: \nadung1703@gmail.com"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/Number"
